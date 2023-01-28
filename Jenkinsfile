@@ -27,6 +27,7 @@ pipeline {
             }
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']) {
+                    //Altera o arquivo deployment com ultimo build para criar uma imagem com a tag referenciando o build
                     sh 'sed -i "s/{{TAG}}/$tag_version/g" ./k8s/deployment.yaml'
                     sh 'kubectl apply -f ./k8s/deployment.yaml'                    
                 }
