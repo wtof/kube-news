@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: wtof/kube-news:latest
+        image: wtof/kube-news:{{TAG}}
         ports:
         - containerPort: 8080
         env:
